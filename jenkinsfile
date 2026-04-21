@@ -2,9 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Confirm test run') {
             steps {
-                checkout scm
+                script {
+                    def response = input message: 'Continue with python_test1?',
+                    parameters: [choice(
+                        choices: 'Yes\nNo',
+                        description: 'Choose Yes to continue or No to stop',
+                        name: 'continue_test'
+                    )]
+
+                    if (response != 'Yes') {
+                        error('Test execution stopped by user.')
+                    }
+                }
             }
         }
 
