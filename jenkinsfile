@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Run Python test') {
+            steps {
+                bat 'python --version'
+                bat 'python jenkins_test.py'
+            }
+        }
+    }
+}
