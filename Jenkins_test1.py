@@ -1,3 +1,12 @@
-print("Hello from Jenkins")
-print("Running test script...")
-print("SUCCESS")
+import sys
+
+print("Running test...")
+
+# simulacija testa
+result = True
+
+if not result:
+    print("Test FAILED")
+    sys.exit(1)
+else:
+    print("Test PASSED")
