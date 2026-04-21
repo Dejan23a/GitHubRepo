@@ -10,7 +10,7 @@ pipeline {
 
         stage('Run Python test') {
             steps {
-                bat 'python --version'
+                bat 'py --version'
                 bat 'python jenkins_test1.py'
             }
         }
