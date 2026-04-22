@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snake Control Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-panel">
+        <p class="eyebrow">Python + Flask</p>
+        <h1>Snake Control Room</h1>
+        <p class="subtitle">
+          Confirm a player name, steer with Arrow keys or WASD, and survive the walls that appear after every snack.
+        </p>
+      </section>
+
+      <section class="layout-grid">
+        <section class="card board-card">
+          <div class="field-row">
+            <label for="player-name">Player name</label>
+            <div class="field-actions">
+              <input id="player-name" name="player-name" maxlength="20" autocomplete="off" placeholder="Enter your name">
+              <button id="confirm-player" type="button">OK</button>
+            </div>
+          </div>
+
+          <div class="status-strip">
+            <div>
+              <span class="meta-label">Score</span>
+              <strong id="score">0</strong>
+            </div>
+            <div>
+              <span class="meta-label">Current player</span>
+              <strong id="current-player">Waiting for confirmation</strong>
+            </div>
+            <div>
+              <span class="meta-label">Status</span>
+              <strong id="status">Create a session to begin.</strong>
+            </div>
+          </div>
+
+          <canvas id="game-board" width="480" height="480" aria-label="Snake game board"></canvas>
+
+          <div class="button-row">
+            <button id="restart-game" type="button">Restart</button>
+          </div>
+        </section>
+
+        <aside class="card side-card">
+          <section>
+            <h2>How to Play</h2>
+            <ul class="info-list">
+              <li>Confirm the player name with Enter or the OK button.</li>
+              <li>Use Arrow keys or WASD to steer the snake.</li>
+              <li>Each food pickup grows the snake, changes its color, and adds one wall block.</li>
+              <li>Hitting the border, the snake body, or a wall ends the run.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>High Scores</h2>
+            <ol id="high-scores" class="score-list">
+              <li>No scores yet.</li>
+            </ol>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="{{ url_for('static', filename='js/ui.js') }}"></script>
+  </body>
+</html>
