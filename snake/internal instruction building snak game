@@ -1,0 +1,53 @@
+1. najrej sem v chatGPT napisal prompt za snake igro (snake_prompt.txt)
+2. v VScode - CHAT napisal naj iz .txt naredi .md format (malo se je zatikalo - nisem videl, kam je shranil) 
+3. v VScode - CODEX sem napisal : snake_prompt.md design initial implementation with pyton backend and html web user interface. define structure . save file in .md document, no code changes planning only.
+4. snake_prompt.md je codex 'popravil' in ga shranil pod istim imenom.
+5. v VScode - CODEX sem naročil naj popravi (to je še isti session): update plan that game logic will be written in python. move planning into new file -> game_snake_implement.md
+6. game_snake_implement.md sem pregledal (ctrl+shift  + v) 
+6. odprl sem novi CODEX session (new chat - ikona je papir in pisalo desno pod X) in mu dal navodila: game_snake_implement.md implement 1-5 milestones
+7. dodal sem še navodila: implement also milestone 6 from game_snake_implement.md (isti session (chat)
+8. vprašal kako se starta igro: how can i start snake game ?
+9. ko sem startal (powershell : py -3 -m pip install -r requirements.txt in py -3 -m app.server ter v browser: http://127.0.0.1:5000 njegova orig navodila:
+
+#Open a terminal in snake, then run:
+#
+#py -3 -m pip install -r requirements.txt
+#py -3 -m app.server
+#After that, open http://127.0.0.1:5000 in your browser.
+#
+#If py does not work on your machine, use your Python command instead, for example:
+#
+#python -m pip install -r requirements.txt
+#python -m app.server
+
+10. sem dobil error v browser ki sem mu ga kopiral on pa je popravil igro in komentiral: 
+#The crash was caused by the template using url_for('snake.static', ...), but your app exposes static files on Flask’s default static endpoint.
+#
+#I fixed both references in index.html (line 7), so the page now points to:
+#
+#url_for('static', filename='css/style.css')
+#url_for('static', filename='js/ui.js')
+#Flask debug mode should auto-reload. If the page is still open, refresh http://127.0.0.1:5000. If needed, stop and rerun:
+#
+#py -3 -m app.server
+#I also checked that there are no remaining snake.static references in the snake app.
+
+11. igra je bila sedaj delujoča, je bilo pa treba še popraviti vnos nekaterih črk v polje za ime igralca: when entering player name i can not add alphabets 'a' , 'd' s, ..... solve issue. make snake slowwer by 50%.
+#I fixed both issues in ui.js (line 13).
+#
+#Typing in the player-name field now works normally because the global movement handler ignores key presses when focus is inside an input, textarea, select, or editable field. That stops a, d, s, w from being hijacked as snake controls while you’re entering a name. I also slowed the snake by 50% by changing the tick interval from 150ms to 225ms.
+#
+#If your Flask server is still running in debug mode, just refresh the page. Otherwise restart with:
+#
+#py -3 -m app.server
+#I only changed the frontend file for this fix; I didn’t run a browser test locally.
+#
+11. prosil sem ga naj še naredi navodila kako sedaj 'snake folder' commitam v (lokalni-Dejan) github:
+
+Trebate pratiti ovaj proces za commit 'snake' foldera na GitHub:
+
+Dodajte sve izmene u folderu 'snake': git add snake/
+Napravite commit sa porukom: git commit -m "Add snake game project"
+Push-ujte na GitHub:git push origin main
+
+
