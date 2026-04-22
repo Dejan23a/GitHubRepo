@@ -1,0 +1,87 @@
+Create a complete Snake game in plain HTML, CSS, and JavaScript, with no frameworks and no additional dependencies.
+
+Requirements:
+- Create these files:
+  - index.html
+  - style.css
+  - script.js
+- The game must be fully playable just by opening index.html in a browser.
+- Use canvas to render the game board.
+- Keep the code clean, readable, and clearly separated into game state logic, rendering, and user controls.
+
+Core game rules:
+- Classic grid-based Snake game.
+- The snake moves on a grid.
+- Controls should support arrow keys, and may also support WASD.
+- The snake grows when it eats food.
+- Display the score.
+- Game over happens when the snake hits the outer boundary or its own body.
+- Add a way to restart the game.
+
+Additional requirements from the final version:
+1. Snake color changes:
+- Every time the snake eats one piece of food, the snake must change color.
+- Use multiple colors and cycle through them repeatedly.
+- The head may use a slightly different shade than the body, but it must be clear that the whole snake changes color after each food pickup.
+
+2. Walls:
+- Every time the snake eats food, one new wall block must appear at a random free location.
+- Each wall block must be exactly one grid cell in size, the same size as the food and one snake segment.
+- The wall block must remain on the board until the game ends.
+- The snake must not be allowed to collide with these wall blocks; hitting a wall block must trigger game over, just like hitting the outer boundary.
+- New wall blocks must never spawn:
+  - on the snake,
+  - on an existing wall,
+  - on the current food.
+- New food must also never spawn on the snake or on a wall.
+- Because more and more walls appear over time, the game should gradually become harder.
+
+3. Player name and score saving:
+- Add an input field for the player name.
+- Add an OK button to confirm the name.
+- The game must not start and the snake must not move until the player enters a name and confirms it by pressing Enter or clicking OK.
+- Once the name is confirmed, the game starts.
+- If the player changes the name, the game must pause again until the new name is confirmed.
+- On game over, save the score together with the player name.
+- Use localStorage to save:
+  - the last entered player name,
+  - the high score list.
+- Display High Scores on the page.
+- The high score list must remain available after refreshing the page.
+
+UI requirements:
+- Keep the UI minimal, clean, and easy to understand.
+- The page should include:
+  - the game title,
+  - short instructions,
+  - a score display,
+  - a game status display,
+  - a player name input,
+  - an OK button,
+  - the canvas,
+  - a Restart button,
+  - a High Scores list.
+- Keep the styling simple, with no unnecessary animations.
+
+Technical requirements:
+- The game logic should be as deterministic and modular as possible.
+- Separate helper functions for:
+  - snake movement,
+  - collision detection,
+  - food spawning,
+  - wall spawning,
+  - rendering,
+  - restart logic,
+  - score persistence.
+- Make sure the score is not saved multiple times for the same game-over event.
+- Make sure restart correctly resets:
+  - the snake,
+  - the score,
+  - the direction,
+  - the food,
+  - the walls,
+  - the game-over state,
+  - the snake color cycle.
+
+At the end:
+- Also provide short instructions for how to run the game and what to manually verify.
